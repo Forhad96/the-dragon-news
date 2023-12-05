@@ -51,8 +51,8 @@ const Footer = () => {
           </IconButton>
         </Box>
         <Box className="w-full mx-auto text-center">
-          {navItems.map((item) => (
-            <Link href={item.path} key={item}>
+          {navItems.map((item,idx) => (
+            <Link href={item.path} key={idx}>
               <Button className="text-white">{item.route}</Button>
             </Link>
           ))}

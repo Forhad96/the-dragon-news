@@ -1,6 +1,7 @@
-import { Box, ButtonBase, Card, CardActionArea, CardContent, CardMedia, Grid, Typography } from "@mui/material";
+import { Box, ButtonBase, Card, CardActionArea, CardContent, CardMedia, Grid, Paper, Typography } from "@mui/material";
 import Image from "next/image";
 import sidebar1 from "@/assets/sidebar1.png";
+import sidebar2 from "@/assets/sidebar2.png";
 import { showCurrentDate } from "@/utils/getCurrentDate";
 const Sidebar = () => {
     const currentDate = showCurrentDate()
@@ -33,31 +34,35 @@ const Sidebar = () => {
             </CardContent>
           </CardActionArea>
         </Card>
-        <Grid container spacing={2}>
-          <Grid item>
-            <ButtonBase sx={{ width: 128, height: 128 }}>
-              {/* <Img alt="complex" src="/static/images/grid/complex.jpg" /> */}
-            </ButtonBase>
-          </Grid>
-          <Grid item xs={12} sm container>
-            <Grid item xs container direction="column" spacing={2}>
-              <Grid item xs>
-                <Typography gutterBottom variant="subtitle1" component="div">
-                  Standard license
-                </Typography>
-                <Typography variant="body2" gutterBottom>
-                  Full resolution 1920x1080 • JPEG
-                </Typography>
-              </Grid>
 
+        {[1, 2, 3, 4, 5, 6].map((item, idx) => (
+          <Paper key={idx} className="my-5">
+            <Grid container spacing={2}>
+              <Grid item>
+                <ButtonBase sx={{ width: 128, height: 84 }}>
+                  <Image src={sidebar1} width={80} height={80} alt="sidebar" />
+                </ButtonBase>
+              </Grid>
+              <Grid item xs={12} sm container>
+                <Grid item xs container direction="column" spacing={2}>
+                  <Grid item xs>
+                    <Typography
+                      gutterBottom
+                      variant="subtitle1"
+                      component="div"
+                    >
+                      Standard license
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      ID: 1030114
+                    </Typography>
+                  </Grid>
+                </Grid>
+              </Grid>
             </Grid>
-            <Grid item>
-              <Typography variant="subtitle1" component="div">
-                $19.00
-              </Typography>
-            </Grid>
-          </Grid>
-        </Grid>
+          </Paper>
+        ))}
+        <Image src={sidebar2} width={800} alt="card image" />
       </Box>
     );
 };

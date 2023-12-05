@@ -19,7 +19,7 @@ const navItems = [
   },
   {
     route: "Category",
-    path: "/category",
+    path: "/categories/news",
   },
   {
     route: "News",
@@ -27,11 +27,11 @@ const navItems = [
   },
   {
     route: "About",
-    path: "/",
+    path: "/about",
   },
   {
     route: "Contact",
-    path: "/",
+    path: "/about",
   },
 ];
 
@@ -44,8 +44,8 @@ function Navbar() {
           <Toolbar disableGutters>
             <Image width={100} height={100} src={logo} alt="logo" />
             <Box className="w-full mx-auto text-center">
-              {navItems.map((item) => (
-                <Link href={item.path} key={item}>
+              {navItems.map((item,idx) => (
+                <Link href={item.path} key={idx}>
                   <Button className="text-white">{item.route}</Button>
                 </Link>
               ))}
